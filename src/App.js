@@ -6,7 +6,21 @@ export default class App extends React.Component {
 
 
 
+componentDidMount = () => {
 
+  let query = {'query': '{ user(id: 1) { id, name, phoneNumber }}'}
+
+  fetch('http://localhost:3000/graphql',  {     
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(query)
+      }).then(res => res.json())
+      .then(res => console.log(res.data))
+  
+
+}
 
 
   
